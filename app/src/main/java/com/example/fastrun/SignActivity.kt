@@ -21,7 +21,7 @@ class SignActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.createbutton.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, ChooseLocationActivity::class.java)
             startActivity(intent)
         }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.donthavebutton)) { v, insets ->
