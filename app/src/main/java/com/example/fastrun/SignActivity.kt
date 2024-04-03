@@ -6,18 +6,22 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.fastrun.databinding.ActivityStartBinding
+import com.example.fastrun.databinding.ActivitySignBinding
 
-class StartActivity : AppCompatActivity() {
-    private val binding: ActivityStartBinding by lazy {
-        ActivityStartBinding.inflate(layoutInflater)
+class SignActivity : AppCompatActivity() {
+    private val binding : ActivitySignBinding by lazy {
+        ActivitySignBinding.inflate(layoutInflater)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
-        binding.nextButton.setOnClickListener {
-            val intent = Intent(this,LoginActivity::class.java)
+        binding.alreadyhavebutton.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        binding.createbutton.setOnClickListener {
+            val intent = Intent(this, ChooseLocationActivity::class.java)
             startActivity(intent)
         }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.donthavebutton)) { v, insets ->
