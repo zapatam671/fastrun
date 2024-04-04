@@ -51,6 +51,7 @@
         android:layout_marginLeft="16dp"
         android:gravity="center"
         android:text="Popular"
+        android:fontFamily="@font/lato_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
@@ -63,6 +64,7 @@
         android:background="@drawable/textviewshape"
         android:gravity="center"
         android:text="View Menu"
+        android:fontFamily="@font/lato_bold"
         android:textColor="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />

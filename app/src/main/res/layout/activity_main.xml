@@ -23,6 +23,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="Welcome to FastRun"
+        android:fontFamily="@font/montserrat_alternates"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
