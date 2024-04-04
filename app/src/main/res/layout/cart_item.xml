@@ -38,12 +38,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                app:layout_constraintBottom_toTopOf="@+id/cartItemPRice"
+                app:layout_constraintBottom_toTopOf="@+id/cartItemPrice"
                 app:layout_constraintStart_toEndOf="@+id/cartImage"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/cartItemPRice"
+                android:id="@+id/cartItemPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -59,12 +59,12 @@
                 android:background="@drawable/addtocartshape"
                 android:padding="2dp"
                 android:src="@drawable/icon_minus"
-                app:layout_constraintBottom_toBottomOf="@+id/quantity"
-                app:layout_constraintEnd_toStartOf="@+id/quantity"
-                app:layout_constraintTop_toTopOf="@+id/quantity" />
+                app:layout_constraintBottom_toBottomOf="@+id/cartItemQuantity"
+                app:layout_constraintEnd_toStartOf="@+id/cartItemQuantity"
+                app:layout_constraintTop_toTopOf="@+id/cartItemQuantity" />
 
             <TextView
-                android:id="@+id/quantity"
+                android:id="@+id/cartItemQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
