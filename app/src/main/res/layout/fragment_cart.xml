@@ -30,11 +30,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_width="325dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/proceedbuttonshape"
+        android:fontFamily="@font/lato_bold"
+        android:text="Proceed"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
