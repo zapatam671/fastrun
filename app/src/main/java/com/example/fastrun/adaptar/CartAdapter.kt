@@ -27,6 +27,35 @@ class CartAdapter(private val cartItems:MutableList<String>, private val CartIte
                 cartItemPrice.text = CartItemPrice[position]
                 cartImage.setImageResource(CartImage[position])
                 cartItemQuantity.text = quantity.toString()
+                minusbutton.setOnClickListener {
+
+                }
+                plusbutton.setOnClickListener {
+
+                }
+                deleteButton.setOnClickListener {
+                    fun decreaseQuantity(position: Int){
+                        if (itemQuantities[position]>1){
+                            itemQuantities[position]--
+                            binding.cartItemQuantity.text = itemQuantities[position].toString()
+                        }
+                        fun increaseQuantity(position: Int){
+                            if (itemQuantities[position]<10){
+                                itemQuantities[position]++
+                                binding.cartItemQuantity.text = itemQuantities[position].toString()
+                            }
+                            fun deleteItem(position: Int) {
+                                cartItems.removeAt(position)
+                                CartImage.removeAt(position)
+                                CartItemPrice.removeAt(position)
+                                notifyItemRemoved(position)
+                                notifyItemRangeChanged(position,cartItems.size)
+                            }
+                        }
+                    }
+                }
+
+
 
             }
 
