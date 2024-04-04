@@ -1,10 +1,11 @@
 package com.example.fastrun
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.fastrun.adaptar.MenuAdapter
 import com.example.fastrun.databinding.FragmentMenuBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -22,6 +23,20 @@ class MenuBottomSheetFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMenuBottomSheetBinding.inflate(inflater,container,false)
+        val menuFoodName = listOf("Coffee", "Tea", "Frappe" , "Item", "Item")
+        val menuItemPrice = listOf("$5", "$6", "$7", "$10", "$10")
+        val menuImage = listOf(
+            R.drawable.coffee,
+            R.drawable.tea,
+            R.drawable.frappe,
+            R.drawable.coffee,
+            R.drawable.tea
+        )
+        val adapter = MenuAdapter(ArrayList(menuFoodName),ArrayList(menuItemPrice),ArrayList(menuImage))
+        binding.menuRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.menuRecyclerView.adapter = adapter
+
+
         return  binding.root
     }
 
