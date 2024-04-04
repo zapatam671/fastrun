@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <SearchView
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
 
