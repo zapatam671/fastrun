@@ -44,9 +44,10 @@
                 android:id="@+id/button"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/icon_minus"
+                android:layout_marginEnd="8dp"
                 android:background="@drawable/addtocartshape"
                 android:padding="2dp"
+                android:src="@drawable/icon_minus"
                 app:layout_constraintBottom_toBottomOf="@+id/textView18"
                 app:layout_constraintEnd_toStartOf="@+id/textView18"
                 app:layout_constraintTop_toTopOf="@+id/textView18" />
@@ -55,6 +56,7 @@
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:text="1"
                 app:layout_constraintBottom_toBottomOf="@+id/button4"
                 app:layout_constraintEnd_toStartOf="@+id/button4"
@@ -64,11 +66,24 @@
                 android:id="@+id/button4"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/icon_plus"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/addtocartshape"
                 android:padding="2dp"
+                android:src="@drawable/icon_plus"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/deleteButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="24dp"
+                android:background="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="@+id/button4"
+                app:layout_constraintStart_toStartOf="@+id/button"
+                app:layout_constraintTop_toBottomOf="@+id/button4"
+                app:srcCompat="@drawable/trash_03" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
