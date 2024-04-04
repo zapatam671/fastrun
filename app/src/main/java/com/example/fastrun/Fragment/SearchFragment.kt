@@ -17,7 +17,7 @@ class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private lateinit var  adapter : MenuAdapter
     private val originalMenuFoodName  = listOf("Coffee", "Tea", "Frappe" , "Item", "Item")
-    private val originalMenuItemPrice = listOf("$5", "$6", "$7", "$10", "$10")
+    private val originalMenuItemPrice  = listOf("$5", "$6", "$7", "$10", "$10")
     private val originalMenuImage  = listOf(
         R.drawable.coffee,
         R.drawable.tea,
@@ -82,14 +82,13 @@ class SearchFragment : Fragment() {
         filteredMenuImage.clear()
 
         originalMenuFoodName.forEachIndexed { index, foodName ->
-            if (foodName.contains(query.toString(), ignoreCase = true)) {
+            if (foodName.contains(query, ignoreCase = true)) {
                 filteredMenuFoodName.add(foodName)
-                filteredMenuItemPrice.add(originalMenuItemPrice.toString())
+                filteredMenuItemPrice.add(originalMenuItemPrice[index]) // Corrected line
                 filteredMenuImage.add(originalMenuImage[index])
             }
         }
         adapter.notifyDataSetChanged()
-
     }
 
     companion object {
