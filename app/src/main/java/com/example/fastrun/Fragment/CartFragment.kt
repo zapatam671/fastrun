@@ -26,13 +26,14 @@ class CartFragment : Fragment() {
     ): View? {
         binding = FragmentCartBinding.inflate(inflater,container, false)
 
-        val cartFoodName = listOf("Coffee", "Tea", "Frappe" , "Item")
-        val cartItemPrice = listOf("$5", "$6", "$7", "10")
+        val cartFoodName = listOf("Coffee", "Tea", "Frappe" , "Item", "Item")
+        val cartItemPrice = listOf("$5", "$6", "$7", "$10", "$10")
         val cartImage = listOf(
             R.drawable.coffee,
             R.drawable.tea,
             R.drawable.frappe,
-            R.drawable.coffee
+            R.drawable.coffee,
+            R.drawable.tea
         )
         val adapter = CartAdapter(ArrayList(cartFoodName),ArrayList(cartItemPrice),ArrayList(cartImage))
         binding.cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
