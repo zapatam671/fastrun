@@ -23,6 +23,7 @@ class MenuAdapter(private val menuItemsName:MutableList<String>, private val men
             binding.apply {
                 menuFoodName.text=menuItemsName[position]
                 menuPrice.text = menuItemPrice[position]
+                menuImage.setImageResource(MenuImage[position])
             }
         }
 
