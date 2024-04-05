@@ -19,6 +19,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat_alternates"
             android:text="Recent Buy"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,6 +58,7 @@
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/montserrat_alternates"
                     android:text="FoodName"
+                    android:textSize="16sp"
                     app:layout_constraintBottom_toTopOf="@+id/textView20"
                     app:layout_constraintStart_toEndOf="@+id/imageView7"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -67,6 +69,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_alternates"
                     android:text="$5"
+                    android:textSize="16sp"
                     android:textColor="@color/green"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/textView19"
@@ -93,6 +96,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/montserrat_alternates"
             android:text="Recent Buy"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
@@ -103,6 +107,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            tools:listitem="@layout/buy_again_item"
             app:layout_constraintTop_toBottomOf="@+id/textView21" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
