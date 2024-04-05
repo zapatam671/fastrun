@@ -23,12 +23,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="Welcome to FastRun"
+        android:fontFamily="@font/montserrat_alternates"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/notificationButton"
         android:layout_width="32dp"
         android:layout_height="42dp"
         android:layout_marginEnd="32dp"
