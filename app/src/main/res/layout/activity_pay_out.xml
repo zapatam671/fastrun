@@ -193,7 +193,7 @@ for previewing layouts and visual " />
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_alternates"
                 android:paddingLeft="8dp"
-                android:text="TextView" />
+                android:text="Total Amount" />
 
             <EditText
 
