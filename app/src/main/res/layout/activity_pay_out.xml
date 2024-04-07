@@ -166,7 +166,7 @@ for previewing layouts and visual " />
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/PaymentMethod" />
+                app:srcCompat="@drawable/paymentmethod" />
 
         </LinearLayout>
 
