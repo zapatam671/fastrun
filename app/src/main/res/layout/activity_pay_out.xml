@@ -26,7 +26,7 @@
             android:id="@+id/textView19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lato"
+            android:fontFamily="@font/montserrat_alternates"
             android:text="Edit"
             android:layout_marginTop="16dp"
             android:layout_gravity="center"
@@ -53,6 +53,7 @@
                 android:layout_width="78dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/montserrat_alternates"
                 android:paddingLeft="8dp"
                 android:text="Name" />
 
@@ -62,6 +63,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:ems="10"
+                android:fontFamily="@font/lato"
                 android:inputType="text"
                 android:text="Name" />
 
@@ -84,6 +86,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/montserrat_alternates"
                 android:paddingLeft="8dp"
                 android:text="Address" />
 
@@ -91,10 +94,11 @@
 
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:ems="10"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
+                android:background="@android:color/transparent"
+                android:ems="10"
+                android:fontFamily="@font/lato"
                 android:inputType="textMultiLine"
                 android:text="Lorem ipsum is placeholder text
 commonly used in the graphic,
@@ -120,6 +124,7 @@ for previewing layouts and visual " />
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/montserrat_alternates"
                 android:paddingLeft="8dp"
                 android:text="Phone" />
 
@@ -129,6 +134,7 @@ for previewing layouts and visual " />
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:ems="10"
+                android:fontFamily="@font/lato"
                 android:inputType="text"
                 android:text="123456789" />
 
@@ -151,6 +157,7 @@ for previewing layouts and visual " />
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/montserrat_alternates"
                 android:paddingLeft="8dp"
                 android:text="Payment Method" />
 
@@ -174,6 +181,7 @@ for previewing layouts and visual " />
 
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:paddingLeft="8dp"
                 android:text="TextView" />
 
@@ -183,6 +191,7 @@ for previewing layouts and visual " />
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:ems="10"
+                android:fontFamily="@font/lato"
                 android:inputType="text"
                 android:text="Name" />
 
@@ -206,6 +215,7 @@ for previewing layouts and visual " />
 
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:paddingLeft="8dp"
                 android:text="TextView" />
 
@@ -215,6 +225,7 @@ for previewing layouts and visual " />
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:ems="10"
+                android:fontFamily="@font/lato"
                 android:inputType="text"
                 android:text="Name" />
 
@@ -232,5 +243,5 @@ for previewing layouts and visual " />
         android:text="Place My Order"
         android:textColor="@color/green"
         android:textAllCaps="false"
-        android:fontFamily="@font/lato"
+        android:fontFamily="@font/lato"/>
 </FrameLayout>
