@@ -24,7 +24,7 @@ class PopularAdaptar ( private val items:List<String>,private val price:List<Str
         holder.itemView.setOnClickListener {
             val intent = Intent(requireContext, DetailsActivity::class.java)
             intent.putExtra("MenuItemName", item)
-            intent.putExtra("MenuItemImage", item)
+            intent.putExtra("MenuItemImage", images)
             requireContext.startActivity(intent)
         }
     }
