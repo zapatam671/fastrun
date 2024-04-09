@@ -25,7 +25,8 @@
         android:fontFamily="@font/montserrat_alternates"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Menu" />
+        android:text="Menu"
+        android:textColor="@color/black"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/menuRecyclerView"

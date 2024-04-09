@@ -20,9 +20,12 @@ class DetailsActivity : AppCompatActivity() {
         binding.detailFoodName.text = foodName
         binding.DetailFoodImage.setImageResource(foodImage)
 
+
+
         binding.imageButton.setOnClickListener {
             finish()
         }
+
 
     }
 }

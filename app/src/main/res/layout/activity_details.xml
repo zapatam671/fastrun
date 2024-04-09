@@ -24,6 +24,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat_alternates"
         android:text="FoodName"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +59,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_alternates"
         android:text="Short Description"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView4" />
@@ -70,6 +72,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/lato"
         android:text="Lorem ipsum dolor sit amet,  consectetur adipiscing elit,  sed do eiusmod tempor incididunt  ut labore et dolore magna aliqua. Ut enim ad"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView22"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
@@ -81,6 +84,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat_alternates"
         android:text="Ingredients"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/DescriptionTextView"
         app:layout_constraintHorizontal_bias="0.0"
@@ -96,7 +100,9 @@
         android:fontFamily="@font/lato"
         android:text="1 item \n second item \n 3rd item"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+        app:layout_constraintTop_toBottomOf="@+id/textView24"
+        android:textColor="@color/black" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button5"
@@ -107,8 +113,9 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/addtocartshape"
         android:fontFamily="@font/montserrat_alternates"
-        android:text="Add to Cart"
+        android:text="Add To Cart"
         android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/IngredientsTextView" />
