@@ -8,9 +8,10 @@
     tools:context=".DetailsActivity">
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imageButton"
         android:layout_width="24dp"
         android:layout_height="24dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,10 +25,11 @@
         android:fontFamily="@font/montserrat_alternates"
         android:text="FoodName"
         android:textColor="@color/black"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView4"
@@ -58,6 +60,7 @@
         android:fontFamily="@font/montserrat_alternates"
         android:text="Short Description"
         android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView4" />
 
@@ -82,6 +85,7 @@
         android:fontFamily="@font/montserrat_alternates"
         android:text="Ingredients"
         android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/DescriptionTextView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/DescriptionTextView"
@@ -96,6 +100,7 @@
         android:fontFamily="@font/lato"
         android:text="1 item \n second item \n 3rd item"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintTop_toBottomOf="@+id/textView24"
         android:textColor="@color/black" />
 
