@@ -70,8 +70,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_alternates"
                     android:text="$5"
-                    android:textSize="16sp"
                     android:textColor="@color/green"
+                    android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/buyAgainFoodName"
                     app:layout_constraintTop_toBottomOf="@+id/buyAgainFoodName" />
@@ -83,9 +83,25 @@
                     android:layout_marginEnd="32dp"
                     app:cardBackgroundColor="#4CAF50"
                     app:cardCornerRadius="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/receivedButton"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/receivedButton"
+                    android:layout_width="64dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/addtocartshape"
+                    android:fontFamily="@font/montserrat_alternates"
+                    android:text="Received"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/orderStatus"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/orderStatus"
+                    app:layout_constraintTop_toBottomOf="@+id/orderStatus" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
