@@ -1,4 +1,4 @@
-package com.example.fastrun
+package com.examples.fastrun
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.fastrun.databinding.ActivityStartBinding
+import com.examples.fastrun.databinding.ActivityStartBinding
 
 class StartActivity : AppCompatActivity() {
     private val binding: ActivityStartBinding by lazy {

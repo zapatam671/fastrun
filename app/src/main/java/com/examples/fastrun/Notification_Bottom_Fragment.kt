@@ -1,13 +1,12 @@
-package com.example.fastrun
+package com.examples.fastrun
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.fastrun.adaptar.NotificationAdapter
-import com.example.fastrun.databinding.FragmentNotificationBottomBinding
+import com.examples.fastrun.adaptar.NotificationAdapter
+import com.examples.fastrun.databinding.FragmentNotificationBottomBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 

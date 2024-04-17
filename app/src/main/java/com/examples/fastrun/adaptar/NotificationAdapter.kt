@@ -1,10 +1,10 @@
-package com.example.fastrun.adaptar
+package com.examples.fastrun.adaptar
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-import com.example.fastrun.databinding.NotificationItemBinding
+import com.examples.fastrun.databinding.NotificationItemBinding
 
 class NotificationAdapter(private var notification : ArrayList<String>, private var notificationImage : ArrayList<Int>) : RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>() {
 

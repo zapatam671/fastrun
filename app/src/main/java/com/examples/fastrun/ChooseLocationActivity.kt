@@ -1,4 +1,4 @@
-package com.example.fastrun
+package com.examples.fastrun
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.fastrun.R
 import com.example.fastrun.databinding.ActivityChooseLocationBinding
 
 class ChooseLocationActivity : AppCompatActivity() {

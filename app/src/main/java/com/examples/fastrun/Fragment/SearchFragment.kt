@@ -1,6 +1,5 @@
-package com.example.fastrun.Fragment
+package com.examples.fastrun.Fragment
 
-import android.app.DownloadManager.Query
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.fastrun.R
-import com.example.fastrun.adaptar.MenuAdapter
-import com.example.fastrun.databinding.FragmentSearchBinding
+import com.examples.fastrun.R
+import com.examples.fastrun.adaptar.MenuAdapter
+import com.examples.fastrun.databinding.FragmentSearchBinding
 
 
 class SearchFragment : Fragment() {

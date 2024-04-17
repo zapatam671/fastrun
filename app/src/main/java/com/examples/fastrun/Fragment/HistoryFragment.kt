@@ -1,4 +1,4 @@
-package com.example.fastrun.Fragment
+package com.examples.fastrun.Fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,10 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.fastrun.R
-import com.example.fastrun.adaptar.BuyAgainAdapter
-import com.example.fastrun.databinding.BuyAgainItemBinding
-import com.example.fastrun.databinding.FragmentHistoryBinding
+import com.examples.fastrun.R
+import com.examples.fastrun.adaptar.BuyAgainAdapter
+import com.examples.fastrun.databinding.FragmentHistoryBinding
 
 
 

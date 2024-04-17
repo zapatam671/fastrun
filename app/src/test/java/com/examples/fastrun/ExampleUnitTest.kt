@@ -1,4 +1,4 @@
-package com.example.fastrun
+package com.examples.fastrun
 
 import org.junit.Test
 

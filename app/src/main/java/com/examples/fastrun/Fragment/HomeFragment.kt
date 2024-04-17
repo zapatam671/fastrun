@@ -1,4 +1,4 @@
-package com.example.fastrun.Fragment
+package com.examples.fastrun.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
-import com.example.fastrun.MenuBottomSheetFragment
-import com.example.fastrun.R
-import com.example.fastrun.adaptar.PopularAdaptar
-import com.example.fastrun.databinding.FragmentHomeBinding
+import com.examples.fastrun.MenuBottomSheetFragment
+import com.examples.fastrun.R
+import com.examples.fastrun.adaptar.PopularAdaptar
+import com.examples.fastrun.databinding.FragmentHomeBinding
 
 
 class HomeFragment : Fragment() {

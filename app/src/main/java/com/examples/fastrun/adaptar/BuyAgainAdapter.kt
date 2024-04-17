@@ -1,4 +1,4 @@
-package com.example.fastrun.adaptar
+package com.examples.fastrun.adaptar
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
