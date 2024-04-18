@@ -2,24 +2,30 @@
 
 package com.examples.fastrun
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fastrun.databinding.ActivityLoginBinding
+import com.examples.fastrun.model.UserModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.database
 
 class LoginActivity : AppCompatActivity() {
+    private var userName:String ?= null
     private lateinit var email:String
     private lateinit var password:String
     private lateinit var auth: FirebaseAuth
@@ -59,6 +65,12 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //google signing
+        binding.googleButton.setOnClickListener {
+            val signIntent = googleSignInclient.signInIntent
+            launcher.launch(signIntent)
+        }
+
     }
 
     private fun createUserAccount(email: String, password: String) {
@@ -69,6 +81,7 @@ class LoginActivity : AppCompatActivity() {
             } else{
                 auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener { task ->
                     if(task.isSuccessful){
+                        saveUserData()
                         val user= auth.currentUser
                         updateUi(user)
                     } else{
@@ -81,6 +94,52 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+    private fun saveUserData() {
+        // get text from edit text
+        email = binding.emailAddress.text.toString().trim()
+        password = binding.password.text.toString().trim()
+
+        val user = UserModel(userName,email, password)
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+        userId?.let {
+            database.child("user").child(it).setValue(user)
+        }
+    }
+    //launcher for google signin
+    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            result ->
+        Log.d("LauncherCallback", "Launcher callback triggered")
+        if (result.resultCode == Activity.RESULT_OK){
+            Log.d("GoogleSignIn", "Google sign-in result is OK")
+            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+            if (task.isSuccessful){
+                Log.d("GoogleSignIn", "Google sign-in successful")
+                val account : GoogleSignInAccount? = task.result
+                val credential = GoogleAuthProvider.getCredential(account?.idToken, null)
+                auth.signInWithCredential(credential).addOnCompleteListener { authTask ->
+                    if(authTask.isSuccessful){
+                        Log.d("FirebaseAuth", "Firebase authentication successful")
+
+                        //successfully sign in with Google
+                        Toast.makeText(this,"Successfully Sign In With Google", Toast.LENGTH_SHORT).show()
+                        updateUi(authTask.result?.user)
+                        finish()
+                    } else{
+                        Log.d("FirebaseAuth", "Firebase authentication failed", authTask.exception)
+                        //successfully sign in with Google
+                        Toast.makeText(this,"Google Sign In Failed", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+            else{
+                Log.d("GoogleSignIn", "Google sign-in failed", task.exception)
+                //successfully sign in with Google
+                Toast.makeText(this,"Google Sign In Failed", Toast.LENGTH_SHORT).show()
+            }
+        }  else {
+            Log.d("GoogleSignIn", "Google sign-in result is not OK")
+        }
+    }
 
 
     private fun updateUi(user: FirebaseUser?) {
