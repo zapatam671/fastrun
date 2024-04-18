@@ -3,10 +3,11 @@ package com.examples.fastrun
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.examples.fastrun.databinding.ActivityDetailsBinding
+import com.example.fastrun.databinding.ActivityDetailsBinding
+
 
 class DetailsActivity : AppCompatActivity() {
-    private lateinit var binding :ActivityDetailsBinding
+    private lateinit var binding : ActivityDetailsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailsBinding.inflate(layoutInflater)

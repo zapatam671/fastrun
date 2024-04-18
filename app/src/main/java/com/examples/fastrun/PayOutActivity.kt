@@ -3,9 +3,7 @@ package com.examples.fastrun
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.examples.fastrun.databinding.ActivityPayOutBinding
+import com.example.fastrun.databinding.ActivityPayOutBinding
 
 class PayOutActivity : AppCompatActivity() {
     lateinit var binding : ActivityPayOutBinding
@@ -18,10 +16,6 @@ class PayOutActivity : AppCompatActivity() {
             val bottomSheetDialog = CongratsBottomSheet()
             bottomSheetDialog.show(supportFragmentManager, "Test")
         }
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
     }
 }

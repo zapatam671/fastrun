@@ -1,15 +1,15 @@
 package com.examples.fastrun.Fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.examples.fastrun.R
+import com.example.fastrun.R
+import com.example.fastrun.databinding.FragmentSearchBinding
 import com.examples.fastrun.adaptar.MenuAdapter
-import com.examples.fastrun.databinding.FragmentSearchBinding
 
 
 class SearchFragment : Fragment() {

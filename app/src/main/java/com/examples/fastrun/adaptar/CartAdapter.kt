@@ -3,7 +3,7 @@ package com.examples.fastrun.adaptar
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.examples.fastrun.databinding.CartItemBinding
+import com.example.fastrun.databinding.CartItemBinding
 
 class CartAdapter(private val cartItems:MutableList<String>, private val CartItemPrice:MutableList<String>, private val CartImage:MutableList<Int>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 

@@ -58,6 +58,14 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.imageSlideshow)
 
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+    implementation("com.google.firebase:firebase-analytics")
+
+
+    implementation("com.google.firebase:firebase-auth")
+
+    implementation("com.google.android.gms:play-services-auth:21.1.0")
+
 
 
 }

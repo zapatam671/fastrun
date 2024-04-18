@@ -5,13 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.fastrun.R
+import com.example.fastrun.databinding.FragmentMenuBottomSheetBinding
 import com.examples.fastrun.adaptar.MenuAdapter
-import com.examples.fastrun.databinding.FragmentMenuBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
 class MenuBottomSheetFragment : BottomSheetDialogFragment() {
-    private lateinit var binding:FragmentMenuBottomSheetBinding
+    private lateinit var binding: FragmentMenuBottomSheetBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

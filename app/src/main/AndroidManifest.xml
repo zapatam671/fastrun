@@ -26,22 +26,26 @@
             android:exported="false" />
         <activity
             android:name="com.examples.fastrun.LoginActivity"
-            android:exported="false" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name="com.examples.fastrun.StartActivity"
             android:exported="false" />
         <activity
             android:name="com.examples.fastrun.Splash_Screen"
-            android:exported="true" />
-        <activity
-            android:name="com.examples.fastrun.MainActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustPan">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.examples.fastrun.MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
+
         </activity>
 
         <meta-data

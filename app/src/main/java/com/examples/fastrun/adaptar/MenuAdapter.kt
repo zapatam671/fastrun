@@ -5,8 +5,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fastrun.databinding.MenuItemBinding
 import com.examples.fastrun.DetailsActivity
-import com.examples.fastrun.databinding.MenuItemBinding
 
 class MenuAdapter(private val menuItemsName: List<String>, private val menuItemPrice: List<String>, private val MenuImage: List<Int>, private val requireContext: Context) :RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
 
