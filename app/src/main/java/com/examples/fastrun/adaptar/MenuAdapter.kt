@@ -6,6 +6,7 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.fastrun.databinding.MenuItemBinding
 import com.examples.fastrun.DetailsActivity
 import com.examples.fastrun.model.MenuItem
@@ -51,21 +52,19 @@ val menuItem :MenuItem = menuItems[position]
             requireContext.startActivity(intent)
         }
 
+        // set data in to recyclerview items name, price, image
         fun bind(position: Int) {
             val menuItem = menuItems[position]
             binding.apply {
-                menuFoodName.text=menuItem.menuFoodName
+                menuFoodName.text=menuItem.foodName
                 menuPrice.text = menuItem.foodPrice
-                val Uri = Uri.parse(menuItem.foodImageUrl)
+                val uri = Uri.parse(menuItem.foodImageUrl)
+                Glide.with(requireContext).load(uri).into(menuImage)
             }
         }
 
     }
 
-    interface OnClickListener{
-        fun onItemClick(position: Int)
-
-    }
 }
 
 
