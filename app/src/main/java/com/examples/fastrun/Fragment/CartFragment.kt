@@ -14,12 +14,21 @@ import com.example.fastrun.R
 import com.example.fastrun.databinding.FragmentCartBinding
 import com.examples.fastrun.PayOutActivity
 import com.examples.fastrun.adaptar.CartAdapter
-
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 
 class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
-
-
+    private lateinit var auth: FirebaseAuth
+    private lateinit var database: FirebaseAuth
+    private lateinit var foodNames: MutableList<String>
+    private lateinit var foodPrices: MutableList<String>
+    private lateinit var foodDescriptions: MutableList<String>
+    private lateinit var foodImagesUri: MutableList<String>
+    private lateinit var foodIngredients: MutableList<String>
+    private lateinit var quantity: MutableList<Int>
+    private lateinit var cartAdapter: CartAdapter
+    private lateinit var userId: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,16 +40,9 @@ class CartFragment : Fragment() {
     ): View? {
         binding = FragmentCartBinding.inflate(inflater,container, false)
 
-        val cartFoodName = listOf("Coffee", "Tea", "Frappe" , "Item", "Item")
-        val cartItemPrice = listOf("$5", "$6", "$7", "$10", "$10")
-        val cartImage = listOf(
-            R.drawable.coffee,
-            R.drawable.tea,
-            R.drawable.frappe,
-            R.drawable.coffee,
-            R.drawable.tea
-        )
-        val adapter = CartAdapter(ArrayList(cartFoodName),ArrayList(cartItemPrice),ArrayList(cartImage))
+        auth = FirebaseAuth.getInstance()
+        retrieveCartItems()
+
         binding.cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.cartRecyclerView.adapter = adapter
         binding.proceedButton.setOnClickListener {
@@ -51,6 +53,14 @@ class CartFragment : Fragment() {
 
 
         return binding.root
+    }
+
+    private fun retrieveCartItems() {
+
+        // database reference to the Firebase
+        database = FirebaseAuth.getInstance()
+        userId = auth.currentUser?.uid?:""
+
     }
 
     companion object {
