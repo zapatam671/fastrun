@@ -60,7 +60,7 @@ class CartFragment : Fragment() {
         // database reference to the Firebase
         database = FirebaseAuth.getInstance()
         userId = auth.currentUser?.uid?:""
-
+        val foodReference :DatabaseReference = database.reference
     }
 
     companion object {
