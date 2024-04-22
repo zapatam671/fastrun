@@ -22,6 +22,9 @@ class MenuBottomSheetFragment : BottomSheetDialogFragment() {
     private lateinit var database: FirebaseDatabase
     private lateinit var menuItems: MutableList<MenuItem>
 
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -36,20 +39,46 @@ class MenuBottomSheetFragment : BottomSheetDialogFragment() {
         }
         retrieveMenuItems()
 
-//        val menuFoodName = listOf("Coffee", "Tea", "Frappe" , "Item", "Item")
-//        val menuItemPrice = listOf("$5", "$6", "$7", "$10", "$10")
-//        val menuImage = listOf(
-//            R.drawable.coffee,
-//            R.drawable.tea,
-//            R.drawable.frappe,
-//            R.drawable.coffee,
-//            R.drawable.tea
-//        )
-
-
-
 
         return  binding.root
+    }
+
+
+    private fun retrieveMenuItems() {
+        database = FirebaseDatabase.getInstance()
+        val foodRef :DatabaseReference = database.reference.child("menu")
+        menuItems = mutableListOf()
+
+
+        foodRef.addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (foodSnapshot in snapshot.children){
+                    val menuItem = foodSnapshot.getValue(MenuItem::class.java)
+                    menuItem?.let { menuItems.add(it)  }
+                }
+                Log.d("ITEMS","onDataChange: Data Received")
+                //once data received, set to adapter
+                setAdapter()
+            }
+
+
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+    private fun setAdapter() {
+        if (menuItems.isNotEmpty()){
+            val adapter = MenuAdapter(menuItems,requireContext())
+            binding.menuRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+            binding.menuRecyclerView.adapter = adapter
+            Log.d("ITEMS","setAdapter: data set")
+        } else{
+            Log.d("ITEMS","setAdapter: data NOT set")
+        }
+
     }
 
     private fun retrieveMenuItems() {
@@ -75,19 +104,7 @@ class MenuBottomSheetFragment : BottomSheetDialogFragment() {
 
         })
     }
-    private fun setAdapter() {
-        if (menuItems.isNotEmpty()){
-            val adapter = MenuAdapter(menuItems,requireContext())
-            binding.menuRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-            binding.menuRecyclerView.adapter = adapter
-            Log.d("Items", "setAdapter: data set")
-        }else{
-            Log.d("Items", "setAdapter: data NOT set")
-        }
-
-    }
-
-    companion object {
-    }
 
 }
+
+
