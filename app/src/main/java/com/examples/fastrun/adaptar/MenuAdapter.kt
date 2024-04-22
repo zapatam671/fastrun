@@ -12,9 +12,11 @@ import com.examples.fastrun.DetailsActivity
 import com.examples.fastrun.model.MenuItem
 
 class MenuAdapter(
+
     private val menuItems: List<MenuItem>,
     private val requireContext: Context
 ) : RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
         val binding = MenuItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -25,6 +27,7 @@ class MenuAdapter(
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
         holder.bind(position)
     }
+
 
     override fun getItemCount(): Int = menuItems.size
     inner class MenuViewHolder(private val binding: MenuItemBinding) :
@@ -71,6 +74,7 @@ class MenuAdapter(
         }
 
     }
+
 
 
 }

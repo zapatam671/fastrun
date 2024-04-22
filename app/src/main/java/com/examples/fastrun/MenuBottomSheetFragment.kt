@@ -23,6 +23,8 @@ class MenuBottomSheetFragment : BottomSheetDialogFragment() {
     private lateinit var menuItems: MutableList<MenuItem>
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -37,13 +39,16 @@ class MenuBottomSheetFragment : BottomSheetDialogFragment() {
         }
         retrieveMenuItems()
 
+
         return  binding.root
     }
+
 
     private fun retrieveMenuItems() {
         database = FirebaseDatabase.getInstance()
         val foodRef :DatabaseReference = database.reference.child("menu")
         menuItems = mutableListOf()
+
 
         foodRef.addListenerForSingleValueEvent(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -76,8 +81,30 @@ class MenuBottomSheetFragment : BottomSheetDialogFragment() {
 
     }
 
-    companion object {
+    private fun retrieveMenuItems() {
+        database = FirebaseDatabase.getInstance()
+        val foodRef :DatabaseReference = database.reference.child("menu")
+        menuItems = mutableListOf()
 
+        foodRef.addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (foodSnapshot in snapshot.children){
+                    val menuItem = foodSnapshot.getValue(MenuItem::class.java)
+                    menuItem?.let { menuItems.add(it)}
+                }
+                Log.d("ITEMS", "onDataChange: Data Received")
+                // once data receive , set to adapter
+                setAdapter()
+            }
+
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
     }
+
 }
+
 
