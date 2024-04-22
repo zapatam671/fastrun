@@ -150,14 +150,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        val currentUser= auth.currentUser
-        if (currentUser != null) {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        }
-    }
+
     private fun updateUi(user: FirebaseUser?) {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
