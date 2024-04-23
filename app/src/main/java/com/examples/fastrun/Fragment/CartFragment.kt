@@ -16,11 +16,12 @@ import com.examples.fastrun.PayOutActivity
 import com.examples.fastrun.adaptar.CartAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
     private lateinit var auth: FirebaseAuth
-    private lateinit var database: FirebaseAuth
+    private lateinit var database: FirebaseDatabase
     private lateinit var foodNames: MutableList<String>
     private lateinit var foodPrices: MutableList<String>
     private lateinit var foodDescriptions: MutableList<String>
@@ -58,9 +59,9 @@ class CartFragment : Fragment() {
     private fun retrieveCartItems() {
 
         // database reference to the Firebase
-        database = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance()
         userId = auth.currentUser?.uid?:""
-        val foodReference :DatabaseReference = database.reference
+        val foodReference :DatabaseReference = database.reference.child("user").child(userId).child("CartItems")
     }
 
     companion object {
