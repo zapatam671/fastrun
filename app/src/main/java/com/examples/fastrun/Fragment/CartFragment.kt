@@ -68,8 +68,48 @@ class CartFragment : Fragment() {
         val foodDescription = mutableListOf<String>()
         val foodIngredient = mutableListOf<String>()
         // get items quantity
-        val foodQuantities = cartAdapter.get
+        val foodQuantities = cartAdapter.getUpdatedItemsQuantities()
 
+        orderIdReference.addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                for (foodSnapshot in snapshot.children){
+                    // get the cartItems to respective List
+                    val orderItems = foodSnapshot.getValue(CartItems::class.java)
+                    // add items details in to list
+                    orderItems?.foodName?.let { foodName.add(it) }
+                    orderItems?.foodPrice?.let { foodPrice.add(it) }
+                    orderItems?.foodDescription?.let { foodDescription.add(it) }
+                    orderItems?.foodImage?.let { foodImage.add(it) }
+                    orderItems?.foodIngredient?.let { foodIngredient.add(it) }
+                }
+                orderNow(foodName,foodPrice,foodDescription,foodImage,foodIngredient,foodQuantities)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(requireContext(), "Order making failed. Please try again.", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun orderNow(
+        foodName: MutableList<String>,
+        foodPrice: MutableList<String>,
+        foodDescription: MutableList<String>,
+        foodImage: MutableList<String>,
+        foodIngredient: MutableList<String>,
+        foodQuantities: MutableList<Int>
+    ) {
+        if (isAdded && context != null){
+            val intent = Intent(requireContext(),PayOutActivity::class.java)
+            intent.putExtra("FoodItemName",foodName as ArrayList<String>)
+            intent.putExtra("FoodItemPrice",foodPrice as ArrayList<String>)
+            intent.putExtra("FoodItemImage",foodImage as ArrayList<String>)
+            intent.putExtra("FoodItemDescription",foodDescription as ArrayList<String>)
+            intent.putExtra("FoodItemIngredient",foodIngredient as ArrayList<String>)
+            intent.putExtra("FoodItemQuantities",foodQuantities as ArrayList<Int>)
+            startActivity(intent)
+        }
     }
 
     private fun retrieveCartItems() {

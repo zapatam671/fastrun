@@ -64,6 +64,7 @@
 
             <EditText
 
+                android:id="@+id/name"
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -101,6 +102,7 @@
 
             <EditText
 
+                android:id="@+id/address"
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -143,6 +145,7 @@ for previewing layouts and visual "
 
             <EditText
 
+                android:id="@+id/phone"
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -215,6 +218,7 @@ for previewing layouts and visual "
 
             <EditText
 
+                android:id="@+id/totalAmount"
                 android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
