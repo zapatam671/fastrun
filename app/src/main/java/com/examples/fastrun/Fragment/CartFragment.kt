@@ -48,6 +48,8 @@ class CartFragment : Fragment() {
         retrieveCartItems()
 
         binding.proceedButton.setOnClickListener {
+            // get order items details before proceeding to check out
+            getOrderItemsDetails()
             val intent = Intent(requireContext(), PayOutActivity::class.java)
             startActivity(intent)
         }
@@ -55,6 +57,19 @@ class CartFragment : Fragment() {
 
 
         return binding.root
+    }
+
+    private fun getOrderItemsDetails() {
+        val orderIdReference:DatabaseReference = database.reference.child("user").child(userId).child("CartItems")
+
+        val foodName = mutableListOf<String>()
+        val foodPrice = mutableListOf<String>()
+        val foodImage = mutableListOf<String>()
+        val foodDescription = mutableListOf<String>()
+        val foodIngredient = mutableListOf<String>()
+        // get items quantity
+        val foodQuantities = cartAdapter.get
+
     }
 
     private fun retrieveCartItems() {
