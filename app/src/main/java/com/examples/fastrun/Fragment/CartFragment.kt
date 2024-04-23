@@ -14,9 +14,13 @@ import com.example.fastrun.R
 import com.example.fastrun.databinding.FragmentCartBinding
 import com.examples.fastrun.PayOutActivity
 import com.examples.fastrun.adaptar.CartAdapter
+import com.examples.fastrun.model.CartItems
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
@@ -44,8 +48,6 @@ class CartFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         retrieveCartItems()
 
-        binding.cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.cartRecyclerView.adapter = adapter
         binding.proceedButton.setOnClickListener {
             val intent = Intent(requireContext(), PayOutActivity::class.java)
             startActivity(intent)
@@ -62,6 +64,44 @@ class CartFragment : Fragment() {
         database = FirebaseDatabase.getInstance()
         userId = auth.currentUser?.uid?:""
         val foodReference :DatabaseReference = database.reference.child("user").child(userId).child("CartItems")
+        // list to store cart items
+        foodNames = mutableListOf()
+        foodPrices = mutableListOf()
+        foodDescriptions = mutableListOf()
+        foodImagesUri = mutableListOf()
+        foodIngredients = mutableListOf()
+        quantity = mutableListOf()
+
+        // fetch data from the database
+        foodReference.addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (foodSnapshot in snapshot.children){
+                    // get the cartItems object from the child node
+                    val cartItems = foodSnapshot.getValue(CartItems::class.java)
+
+                    // add cart items details to the list
+                    cartItems?.foodName?.let { foodNames.add(it) }
+                    cartItems?.foodPrice?.let { foodPrices.add(it) }
+                    cartItems?.foodDescription?.let { foodDescriptions.add(it) }
+                    cartItems?.foodImage?.let { foodImagesUri.add(it) }
+                    cartItems?.foodQuantity?.let { quantity.add(it) }
+                    cartItems?.foodIngredient?.let { foodIngredients.add(it) }
+                }
+
+                setAdapter()
+            }
+
+            private fun setAdapter() {
+                val adapter = CartAdapter(requireContext(),foodNames,foodPrices,foodDescriptions,foodImagesUri,quantity,)
+                binding.cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+                binding.cartRecyclerView.adapter = adapter
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
     }
 
     companion object {

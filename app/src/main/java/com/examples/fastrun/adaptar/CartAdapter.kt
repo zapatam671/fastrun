@@ -21,7 +21,8 @@ class CartAdapter(
     private val cartItemPrices: MutableList<String>,
     private var cartImages: MutableList<String>,
     private var cartDescriptions:MutableList<String>,
-    private val cartQuantity:MutableList<Int>
+    private val cartQuantity:MutableList<Int>,
+    private var cartIngredient:MutableList<String>
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     // instance Firebase
     private val auth =FirebaseAuth.getInstance()
@@ -60,7 +61,7 @@ class CartAdapter(
                 val quantity = itemQuantities[position]
                 cartFoodName.text = cartItems[position]
                 cartItemPrice.text = cartItemPrices[position]
-
+                cartIngredient
                 // load image using Glide
                 val uriString = cartImages[position]
                 val uri = Uri.parse(uriString)
