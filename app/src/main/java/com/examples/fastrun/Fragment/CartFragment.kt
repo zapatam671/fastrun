@@ -1,16 +1,15 @@
 package com.examples.fastrun.Fragment
 
+
+
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.fastrun.R
-
-
-
 import com.example.fastrun.databinding.FragmentCartBinding
 import com.examples.fastrun.PayOutActivity
 import com.examples.fastrun.adaptar.CartAdapter
@@ -92,13 +91,13 @@ class CartFragment : Fragment() {
             }
 
             private fun setAdapter() {
-                val adapter = CartAdapter(requireContext(),foodNames,foodPrices,foodDescriptions,foodImagesUri,quantity,)
-                binding.cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+                val adapter = CartAdapter(requireContext(),foodNames,foodPrices,foodDescriptions,foodImagesUri,quantity,foodIngredients)
+                binding.cartRecyclerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
                 binding.cartRecyclerView.adapter = adapter
             }
 
             override fun onCancelled(error: DatabaseError) {
-
+                Toast.makeText(context,"data not fetch", Toast.LENGTH_SHORT).show()
             }
 
         })

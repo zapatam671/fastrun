@@ -2,6 +2,7 @@ package com.examples.fastrun.adaptar
 
 import android.content.Context
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -19,8 +20,8 @@ class CartAdapter(
     private val context: Context,
     private val cartItems: MutableList<String>,
     private val cartItemPrices: MutableList<String>,
-    private var cartImages: MutableList<String>,
     private var cartDescriptions:MutableList<String>,
+    private var cartImages: MutableList<String>,
     private val cartQuantity:MutableList<Int>,
     private var cartIngredient:MutableList<String>
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
@@ -61,11 +62,35 @@ class CartAdapter(
                 val quantity = itemQuantities[position]
                 cartFoodName.text = cartItems[position]
                 cartItemPrice.text = cartItemPrices[position]
-                cartIngredient
+
                 // load image using Glide
                 val uriString = cartImages[position]
+                Log.d("image", "bind: food Url: $uriString")
                 val uri = Uri.parse(uriString)
                 Glide.with(context).load(uri).into(cartImage)
+                //keep to check if loading success
+//                Glide.with(context).load(uri).listener(object :RequestListener<Drawable>{
+//                    override fun onLoadFailed(
+//                        e: GlideException?,
+//                        model: Any?,
+//                        target: Target<Drawable>,
+//                        isFirstResource: Boolean
+//                    ): Boolean {
+//                        Log.d("Glide", "onLoadFailed: Image Loading Failed")
+//                        return false
+//                    }
+//
+//                    override fun onResourceReady(
+//                        resource: Drawable,
+//                        model: Any,
+//                        target: Target<Drawable>?,
+//                        dataSource: DataSource,
+//                        isFirstResource: Boolean
+//                    ): Boolean {
+//                        Log.d("Glide", "onLoadFailed: Image Loading Successful")
+//                        return true
+//                    }
+//                }).into(cartImage)
                 cartItemQuantity.text = quantity.toString()
                 minusbutton.setOnClickListener {
                     decreaseQuantity(position)
@@ -117,6 +142,7 @@ class CartAdapter(
                     cartDescriptions.removeAt(position)
                     cartQuantity.removeAt(position)
                     cartItemPrices.removeAt(position)
+                    cartIngredient.removeAt(position)
                     Toast.makeText(context, "Failed to Delete", Toast.LENGTH_SHORT).show()
                     // update itemQuantities
                     itemQuantities = itemQuantities.filterIndexed { index, i -> index != position }.toIntArray()
