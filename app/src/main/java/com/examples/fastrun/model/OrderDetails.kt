@@ -43,7 +43,20 @@ class OrderDetails() :Parcelable {
         itemPushKey: String?,
         b: Boolean,
         b1: Boolean
-    ) : this()
+    ) : this() {
+        this.userVid = userId
+        this.userName = name
+        this.foodNames = foodItemName
+        this.foodPrices = foodItemPrice
+        this.foodImages = foodItemImage
+        this.foodQuantities = foodItemQuantities
+        this.address = address
+        this.totalPrice = phone
+        this.currentTime = time
+        this.itemPushKey = itemPushKey
+        this.orderAccepted = orderAccepted
+        this.paymentReceived = paymentReceived
+    }
 
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {

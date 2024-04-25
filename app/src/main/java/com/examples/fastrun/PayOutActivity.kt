@@ -70,8 +70,7 @@ class PayOutActivity : AppCompatActivity() {
             } else{
                 placeOrder()
             }
-            val bottomSheetDialog = CongratsBottomSheet()
-            bottomSheetDialog.show(supportFragmentManager, "Test")
+
         }
 
     }
@@ -81,7 +80,29 @@ class PayOutActivity : AppCompatActivity() {
         val time = System.currentTimeMillis()
         val itemPushKey = databaseReference.child("OrderDetails").push().key
         val orderDetails = OrderDetails(userId,name,foodItemName,foodItemPrice,foodItemImage,foodItemQuantities,address,phone,time,itemPushKey,false,false)
+        val orderReference = databaseReference.child("OrderDetails").child(itemPushKey!!)
+        orderReference.setValue(orderDetails).addOnSuccessListener {
+            val bottomSheetDialog = CongratsBottomSheet()
+            bottomSheetDialog.show(supportFragmentManager, "Test")
+            removeItemFromCart()
+            addOrderToHistory(orderDetails)
+        }
+            .addOnFailureListener {
+                Toast.makeText(this,    "Failed To Order", Toast.LENGTH_SHORT).show()
+            }
+    }
 
+    private fun addOrderToHistory(orderDetails: OrderDetails){
+        databaseReference.child("user").child("BuyHistory")
+            .child(orderDetails.itemPushKey!!)
+            .setValue(orderDetails).addOnSuccessListener {
+
+            }
+    }
+
+    private fun removeItemFromCart() {
+        val cartItemsReference = databaseReference.child("user").child(userId).child("CartItems")
+        cartItemsReference.removeValue()
     }
 
     private fun calculateTotalAmount(): Int {
