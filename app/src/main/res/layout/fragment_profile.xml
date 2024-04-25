@@ -152,7 +152,7 @@ for previewing layouts and visual " />
 </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button"
+            android:id="@+id/saveInfoButton"
             android:background="@drawable/proceedbuttonshape"
             android:elevation="5dp"
             android:layout_width="match_parent"
