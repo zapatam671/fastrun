@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/button7"
+            android:id="@+id/backButton"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="16dp"
@@ -71,7 +71,6 @@
                 android:ems="10"
                 android:fontFamily="@font/lato"
                 android:inputType="text"
-                android:text="Name"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
 
@@ -111,10 +110,6 @@
                 android:ems="10"
                 android:fontFamily="@font/lato"
                 android:inputType="textMultiLine"
-                android:text="Lorem ipsum is placeholder text
-commonly used in the graphic,
-print, and publishing industries
-for previewing layouts and visual "
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
 
@@ -152,7 +147,6 @@ for previewing layouts and visual "
                 android:ems="10"
                 android:fontFamily="@font/lato"
                 android:inputType="text"
-                android:text="123456789"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black" />
 
@@ -227,7 +221,6 @@ for previewing layouts and visual "
                 android:gravity="end"
                 android:inputType="none"
                 android:paddingEnd="32dp"
-                android:text="$5"
                 android:textColor="@color/green"
                 android:textSize="20sp" />
 
