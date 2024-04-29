@@ -34,8 +34,8 @@ class PopularAdaptar ( private val items:List<String>,private val price:List<Str
     class PopularViewHolder (private val binding: PopularItemBinding) : RecyclerView.ViewHolder(binding.root) {
         private val imagesView = binding.imageView5
         fun bind(item: String,price: String, images: Int) {
-            binding.foodNamePopular.text = item
-            binding.PricePopular.text = price
+            binding.foodName.text = item
+            binding.foodPrice.text = price
             imagesView.setImageResource(images)
 
         }
