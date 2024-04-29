@@ -38,6 +38,7 @@ class OrderDetails() :Parcelable {
         foodItemImage: ArrayList<String>,
         foodItemQuantities: ArrayList<Int>,
         address: String,
+        totalAmount: String,
         phone: String,
         time: Long,
         itemPushKey: String?,
@@ -51,7 +52,8 @@ class OrderDetails() :Parcelable {
         this.foodImages = foodItemImage
         this.foodQuantities = foodItemQuantities
         this.address = address
-        this.totalPrice = phone
+        this.totalPrice = totalAmount
+        this.phoneNumber = phone
         this.currentTime = time
         this.itemPushKey = itemPushKey
         this.orderAccepted = orderAccepted
