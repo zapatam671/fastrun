@@ -32,7 +32,7 @@ class PopularAdaptar ( private val items:List<String>,private val price:List<Str
         return items.size
     }
     class PopularViewHolder (private val binding: PopularItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        private val imagesView = binding.imageView5
+        private val imagesView = binding.foodImage2
         fun bind(item: String,price: String, images: Int) {
             binding.foodName.text = item
             binding.foodPrice.text = price
