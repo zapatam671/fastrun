@@ -14,10 +14,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 
 class ProfileFragment : Fragment() {
@@ -39,6 +35,19 @@ class ProfileFragment : Fragment() {
 
 
         setUserData()
+        binding.apply {
+            name.isEnabled = false
+            email.isEnabled = false
+            address.isEnabled = false
+            phone.isEnabled = false
+            binding.editButton.setOnClickListener {
+                name.isEnabled = !name.isEnabled
+                email.isEnabled = !email.isEnabled
+                address.isEnabled = !address.isEnabled
+                phone.isEnabled = !phone.isEnabled
+            }
+        }
+
 
         binding.saveInfoButton.setOnClickListener {
             val name = binding.name.text.toString()
