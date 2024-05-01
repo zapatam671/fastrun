@@ -27,7 +27,7 @@ class HistoryFragment : Fragment() {
     private lateinit var database: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
     private lateinit var userId: String
-    private var listOfOrderItem: MutableList<OrderDetails> = mutableListOf()
+    private var listOfOrderItem: ArrayList<OrderDetails> = arrayListOf()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,9 +58,10 @@ class HistoryFragment : Fragment() {
 
     //function to see items recetn buy
     private fun seeItemsRecentBuy() {
+        listOfOrderItem.reverse()
         listOfOrderItem.firstOrNull()?.let { recentBuy ->
             val intent = Intent(requireContext(),recentOrderItems::class.java)
-            intent.putExtra("RecentBuyOrderItem",recentBuy)
+            intent.putExtra("RecentBuyOrderItem",listOfOrderItem)
             startActivity(intent)
         }
     }
