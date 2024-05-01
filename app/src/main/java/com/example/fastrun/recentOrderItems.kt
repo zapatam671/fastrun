@@ -23,8 +23,11 @@ class recentOrderItems : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
-        val recentOrderItems = intent.getParcelableArrayListExtra< OrderDetails>("RecentBuyOrderItem")
-        recentOrderItems ?.let{orderDetails ->
+        binding.backButton.setOnClickListener{
+            finish()
+        }
+        val recentOrderItems = intent.getSerializableExtra("RecentBuyOrderItem") as ArrayList<OrderDetails>
+        recentOrderItems?.let{orderDetails ->
             if (orderDetails.isNotEmpty()){
                 val recentOrderItem = orderDetails[0]
 
