@@ -1,6 +1,7 @@
 package com.examples.fastrun.adaptar
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -36,10 +37,11 @@ class RecentBuyAdapter(
                 foodPrice.text = foodPriceList[position]
                 foodQuantity.text = foodQuantityList[position].toString()
                 val uriString = foodImageList[position]
-                val uri = foodNameList
+                val uri = Uri.parse(uriString)
                 Glide.with(context).load(uri).into(foodImage2)
             }
         }
 
     }
 }
+
