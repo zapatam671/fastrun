@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -121,9 +122,10 @@ class HistoryFragment : Fragment() {
                 val uri = Uri.parse(image)
                 Glide.with(requireContext()).load(uri).into(buyAgainFoodImage)
 
-                listOfOrderItem.reverse()
+//                listOfOrderItem.reverse()
 
                 val isOrderIsAccepted = listOfOrderItem[0].orderAccepted
+                Log.d("TAG", "setDataInRecentBuyItem: $isOrderIsAccepted")
                 if (isOrderIsAccepted){
                     orderStatus.background.setTint(Color.GREEN)
                     receivedButton.visibility = View.VISIBLE
