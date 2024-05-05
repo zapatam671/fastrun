@@ -1,6 +1,7 @@
 package com.examples.fastrun.Fragment
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -53,7 +54,16 @@ class HistoryFragment : Fragment() {
         binding.recentBuyItem.setOnClickListener {
             seeItemsRecentBuy()
         }
+        binding.receivedButton.setOnClickListener {
+            updateOrderStatus()
+        }
         return binding.root
+    }
+
+    private fun updateOrderStatus() {
+        val itemPushKey = listOfOrderItem[0].itemPushKey
+        val completeOrderReference = database.reference.child("CompletedOrder").child(itemPushKey!!)
+        completeOrderReference.child("paymentReceived").setValue(true)
     }
 
     //function to see items recetn buy
@@ -112,9 +122,13 @@ class HistoryFragment : Fragment() {
                 Glide.with(requireContext()).load(uri).into(buyAgainFoodImage)
 
                 listOfOrderItem.reverse()
-                if (listOfOrderItem.isNotEmpty()) {
 
+                val isOrderIsAccepted = listOfOrderItem[0].orderAccepted
+                if (isOrderIsAccepted){
+                    orderStatus.background.setTint(Color.GREEN)
+                    receivedButton.visibility = View.VISIBLE
                 }
+
 
 
             }
