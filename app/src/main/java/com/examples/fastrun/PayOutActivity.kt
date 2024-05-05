@@ -105,21 +105,39 @@ class PayOutActivity : AppCompatActivity() {
         cartItemsReference.removeValue()
     }
 
+//    private fun calculateTotalAmount(): Int {
+//        var totalAmount = 0
+//        for (i in 0 until foodItemPrice.size){
+//            var price = foodItemPrice[i]
+//            val lastChar = price.last()
+//            val priceIntValue = if (lastChar =='$'){
+//                price.dropLast(1).toInt()
+//            } else{
+//                price.toInt()
+//            }
+//            var quantity = foodItemQuantities[i]
+//            totalAmount += priceIntValue * quantity
+//        }
+//        return totalAmount
+//    }
+
     private fun calculateTotalAmount(): Int {
         var totalAmount = 0
         for (i in 0 until foodItemPrice.size){
             var price = foodItemPrice[i]
-            val lastChar = price.last()
-            val priceIntValue = if (lastChar =='$'){
-                price.dropLast(1).toInt()
-            } else{
-                price.toInt()
+            val priceIntValue = if (price.startsWith('$')) {
+                // Remove the "$" sign and parse the remaining string as an integer
+                price.substring(1).toIntOrNull() ?: 0
+            } else {
+                // Parse the string as an integer directly
+                price.toIntOrNull() ?: 0
             }
             var quantity = foodItemQuantities[i]
             totalAmount += priceIntValue * quantity
         }
         return totalAmount
     }
+
 
     private fun setUserData() {
         val user = auth.currentUser
